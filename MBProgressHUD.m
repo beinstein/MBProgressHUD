@@ -246,7 +246,7 @@
 - (id)initWithView:(UIView *)view {
 	// Let's check if the view is nil (this is a common error when using the window initializer above)
 	if (!view) {
-		[NSException raise:@"MBProgressHUDViewIsNillException" 
+		[NSException raise:@"MBProgressHUDViewIsNillException"
 					format:@"The view used in the MBProgressHUD initializer is nil."];
 	}
 	id me = [self initWithFrame:view.bounds];
@@ -254,7 +254,7 @@
 	if ([view isKindOfClass:[UIWindow class]]) {
 		[self setTransformForCurrentOrientation:NO];
 	}
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationDidChange:) 
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationDidChange:)
 												 name:UIDeviceOrientationDidChangeNotification object:nil];
 	
 	return me;
@@ -516,12 +516,12 @@
 	
 	// If the grace time is set postpone the HUD display
 	if (self.graceTime > 0.0) {
-		self.graceTimer = [NSTimer scheduledTimerWithTimeInterval:self.graceTime 
-														   target:self 
-														 selector:@selector(handleGraceTimer:) 
-														 userInfo:nil 
+		self.graceTimer = [NSTimer scheduledTimerWithTimeInterval:self.graceTime
+														   target:self
+														 selector:@selector(handleGraceTimer:)
+														 userInfo:nil
 														  repeats:NO];
-	} 
+	}
 	// ... otherwise show the HUD immediately
 	else {
 		[self setNeedsDisplay];
@@ -537,13 +537,13 @@
 	if (self.minShowTime > 0.0 && showStarted) {
 		NSTimeInterval interv = [[NSDate date] timeIntervalSinceDate:showStarted];
 		if (interv < self.minShowTime) {
-			self.minShowTimer = [NSTimer scheduledTimerWithTimeInterval:(self.minShowTime - interv) 
-																 target:self 
-															   selector:@selector(handleMinShowTimer:) 
-															   userInfo:nil 
+			self.minShowTimer = [NSTimer scheduledTimerWithTimeInterval:(self.minShowTime - interv)
+																 target:self
+															   selector:@selector(handleMinShowTimer:)
+															   userInfo:nil
 																repeats:NO];
 			return;
-		} 
+		}
 	}
 	
 	// ... otherwise hide the HUD immediately
@@ -639,7 +639,7 @@
     if (animated && animationType == MBProgressHUDAnimationZoom) {
         self.transform = CGAffineTransformConcat(rotationTransform, CGAffineTransformMakeScale(1.5, 1.5));
     }
-    
+
 	self.showStarted = [NSDate date];
     // Fade in
     if (animated) {
@@ -735,7 +735,7 @@
 
 #define RADIANS(degrees) ((degrees * M_PI) / 180.0)
 
-- (void)deviceOrientationDidChange:(NSNotification *)notification { 
+- (void)deviceOrientationDidChange:(NSNotification *)notification {
 	if ([self.superview isKindOfClass:[UIWindow class]]) {
 		[self setTransformForCurrentOrientation:YES];
 	}
@@ -749,10 +749,10 @@
 	NSInteger degrees = 0;
 	
 	if (UIInterfaceOrientationIsLandscape(orientation)) {
-		if (orientation == UIInterfaceOrientationLandscapeLeft) { degrees = -90; } 
+		if (orientation == UIInterfaceOrientationLandscapeLeft) { degrees = -90; }
 		else { degrees = 90; }
 	} else {
-		if (orientation == UIInterfaceOrientationPortraitUpsideDown) { degrees = 180; } 
+		if (orientation == UIInterfaceOrientationPortraitUpsideDown) { degrees = 180; }
 		else { degrees = 0; }
 	}
 	
