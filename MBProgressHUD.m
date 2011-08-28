@@ -300,6 +300,7 @@
 		self._backgroundDimmingView = [[[UIView alloc] initWithFrame:self.bounds] autorelease];
         self._backgroundDimmingView.backgroundColor = [UIColor blackColor];
         self._backgroundDimmingView.alpha = 0.0;
+        self._backgroundDimmingView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 		
 		self._backgroundDimmingView.userInteractionEnabled = NO;
 		self.userInteractionEnabled = NO;
