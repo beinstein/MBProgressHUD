@@ -74,7 +74,7 @@
 @synthesize _cancelButton;
 
 - (void)setMode:(MBProgressHUDMode)newMode {
-    // Dont change mode if it wasn't actually changed to prevent flickering
+    // Don't change mode if it wasn't actually changed to prevent flickering
     if (mode && (mode == newMode)) {
         return;
     }
@@ -139,7 +139,7 @@
 - (void)setProgress:(float)newProgress {
     progress = newProgress;
 	
-    // Update display ony if showing the determinate progress view
+    // Update display only if showing the determinate progress view
     if (mode == MBProgressHUDModeDeterminate) {
 		if ([NSThread isMainThread]) {
 			[self updateProgress];
@@ -244,13 +244,13 @@
 }
 
 - (id)initWithView:(UIView *)view {
-	// Let's check if the view is nil (this is a common error when using the windw initializer above)
+	// Let's check if the view is nil (this is a common error when using the window initializer above)
 	if (!view) {
 		[NSException raise:@"MBProgressHUDViewIsNillException" 
 					format:@"The view used in the MBProgressHUD initializer is nil."];
 	}
 	id me = [self initWithFrame:view.bounds];
-	// We need to take care of rotation ourselfs if we're adding the HUD to a window
+	// We need to take care of rotation ourself if we're adding the HUD to a window
 	if ([view isKindOfClass:[UIWindow class]]) {
 		[self setTransformForCurrentOrientation:NO];
 	}
@@ -402,7 +402,7 @@
 		[label removeFromSuperview];
 	}
 	
-	// Add details label delatils text was set
+	// Add details label details text was set
 	if (nil != self.detailsLabelText) {
 		// Get size of label text
 		CGSize dims = [self.detailsLabelText sizeWithFont:self.detailsLabelFont];
@@ -533,7 +533,7 @@
 	useAnimation = animated;
 	
 	// If the minShow time is set, calculate how long the hud was shown,
-	// and pospone the hiding operation if necessary
+	// and postpone the hiding operation if necessary
 	if (self.minShowTime > 0.0 && showStarted) {
 		NSTimeInterval interv = [[NSDate date] timeIntervalSinceDate:showStarted];
 		if (interv < self.minShowTime) {
