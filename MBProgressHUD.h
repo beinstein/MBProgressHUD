@@ -63,7 +63,7 @@ typedef enum {
 /**
  * A callback function that is called after the HUD get's cancelled.
  */
-- (void)hudDidCancel;
+- (void)hudDidCancel:(MBProgressHUD *)hud;
 @end
 
 /////////////////////////////////////////////////////////////////////////////////////////////

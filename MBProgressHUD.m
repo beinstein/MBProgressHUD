@@ -502,8 +502,8 @@
 - (void)cancel
 {
 	if(delegate != nil && [delegate conformsToProtocol:@protocol(MBProgressHUDDelegate)]) {
-		if([delegate respondsToSelector:@selector(hudDidCancel)]) {
-			[delegate performSelector:@selector(hudDidCancel)];
+		if([delegate respondsToSelector:@selector(hudDidCancel:)]) {
+			[delegate performSelector:@selector(hudDidCancel:) withObject:self];
 		}
     }
 }
