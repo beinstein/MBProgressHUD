@@ -311,6 +311,7 @@
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 
+    [labelFont release];
     [indicator release];
     [label release];
     [detailsLabel release];
