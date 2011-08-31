@@ -312,6 +312,7 @@
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 
     [labelFont release];
+    [detailsLabelFont release];
     [indicator release];
     [label release];
     [detailsLabel release];
