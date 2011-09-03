@@ -508,6 +508,8 @@
 			[delegate performSelector:@selector(hudDidCancel:) withObject:self];
 		}
     }
+	
+	[self hideUsingAnimation:useAnimation];
 }
 
 #pragma mark -
