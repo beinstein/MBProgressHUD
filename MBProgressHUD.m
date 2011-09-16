@@ -173,7 +173,9 @@
 }
 
 - (void)updateProgress {
+  if ([indicator isKindOfClass: [MBRoundProgressView class]]) {
     [(MBRoundProgressView *)indicator setProgress:progress];
+  }
 }
 
 - (void)updateIndicators {
